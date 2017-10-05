@@ -7,9 +7,9 @@ import java.util.List;
 
 
 @RestController
-public class ItemControllerOld {
+public class ItemController {
 
-    List<Item> items = ItemRepositoryOld.getItems();
+    List<Item> items = ItemRepository.getItems();
 
     @RequestMapping(method = RequestMethod.GET, value = "/items")
     ResponseEntity<String> showTotalPrice() {
