@@ -2,16 +2,19 @@ package sawkiewicz.task1;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ArrayBlockingQueue;
+
+import static java.util.stream.Collectors.toCollection;
 
 public class ItemRepository implements Repository {
 
     private static List<Item> items = new ArrayList<>();
 
     static {
-        items.add(new Item("A", 0, 40, 3, 70));
-        items.add(new Item("B", 0, 10, 2, 15));
-        items.add(new Item("C", 0, 30, 4, 60));
-        items.add(new Item("D", 0, 25, 2, 40));
+        items.add(new Item("A", 40, 3, 70));
+        items.add(new Item("B", 10, 2, 15));
+        items.add(new Item("C", 30, 4, 60));
+        items.add(new Item("D", 25, 2, 40));
     }
 
     public static List<Item> getItems() {
@@ -19,15 +22,12 @@ public class ItemRepository implements Repository {
     }
 
     @Override
-    public Item findItemByName(String name) {
+    public Item findByName(String id) {
 
-        for (Item item : items) {
-            if (item.getName().equals(name)) {
-                int temp = item.getQuantity() + 1;
-                item.setQuantity(temp);
-            }
-        }
-
-        return null;
+        return items.stream().filter(item -> item.getName().equals(id))
+                .collect(toCollection(() -> new ArrayBlockingQueue<Item>(1)))
+                .poll();
     }
 }
+
+
