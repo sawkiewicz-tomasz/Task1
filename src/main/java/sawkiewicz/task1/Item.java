@@ -16,22 +16,6 @@ public class Item {
         this.specialPrice = specialPrice;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public void setThreshold(int threshold) {
-        this.threshold = threshold;
-    }
-
-    public void setSpecialPrice(int specialPrice) {
-        this.specialPrice = specialPrice;
-    }
-
     public int getPrice() {
         return price;
     }
@@ -48,18 +32,12 @@ public class Item {
         return id;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Item)) return false;
-
-        Item item = (Item) o;
-
+    public boolean isSameAs(Item item) {
+        if (this == item) return true;
         if (price != item.price) return false;
         if (threshold != item.threshold) return false;
         if (specialPrice != item.specialPrice) return false;
         return id.equals(item.id);
     }
-
 
 }

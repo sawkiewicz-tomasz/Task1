@@ -1,8 +1,8 @@
 package sawkiewicz.task1;
 
 public class CartItem {
-    int quantity;
-    Item item;
+    private int quantity;
+    private Item item;
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
@@ -10,6 +10,10 @@ public class CartItem {
 
     public int getQuantity() {
         return quantity;
+    }
+
+    public Item getItem() {
+        return item;
     }
 
     public CartItem(int quantity, Item item) {
@@ -20,15 +24,10 @@ public class CartItem {
     public CartItem() {
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof CartItem)) return false;
-
-        CartItem cartItem = (CartItem) o;
-
-        if (quantity != cartItem.quantity) return false;
-        return item != null ? item.equals(cartItem.item) : cartItem.item == null;
+    public void increaseQuantiy (CartItem cartItem){
+        int temp = cartItem.getQuantity();
+        temp++;
+        cartItem.setQuantity(temp);
     }
 
 }

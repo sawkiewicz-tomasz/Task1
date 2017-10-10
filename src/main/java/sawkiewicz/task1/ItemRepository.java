@@ -3,11 +3,9 @@ package sawkiewicz.task1;
 import com.google.common.collect.ImmutableList;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ArrayBlockingQueue;
 import static java.util.stream.Collectors.toCollection;
 
 public class ItemRepository implements Repository {
-
     private static List<Item> items = new ArrayList<>();
 
     static {
@@ -18,16 +16,15 @@ public class ItemRepository implements Repository {
     }
 
     public static List<Item> getItems() {
-
         return ImmutableList.copyOf(items);
     }
 
     @Override
     public Item findById(String id) {
-
-        return items.stream().filter(item -> item.getId().equals(id))
-                .collect(toCollection(() -> new ArrayBlockingQueue<Item>(1)))
-                .poll();
+        return items.stream()
+                .filter(item -> item.getId().equals(id))
+                .collect(toCollection(ArrayList::new))
+                .get(0);
     }
 }
 
