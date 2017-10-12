@@ -4,19 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ShoppingCart {
-    String id;
-    List <CartItem> purchase = new ArrayList<>();
+    private String id;
+    private List <CartItem> cartItems = new ArrayList<>();
 
     public ShoppingCart() {
     }
 
-    public ShoppingCart(String id) {
-        this.id = id;
-    }
-
-    public ShoppingCart(String id, List<CartItem> purchase) {
-        this.id = id;
-        this.purchase = purchase;
+    public List<CartItem> getCartItems() {
+        return cartItems;
     }
 
     public String getId() {
@@ -25,17 +20,19 @@ public class ShoppingCart {
 
     public int calculateTotalCost() {
         int totalCost = 0;
-
-        for (CartItem cartItem: purchase) {
-
-            int quantity = cartItem.quantity;
-            Item item = cartItem.item;
-
+        for (CartItem cartItem: cartItems) {
+            int quantity = cartItem.getQuantity();
+            Item item = cartItem.getItem();
             totalCost += quantity / item.getThreshold() * item.getSpecialPrice() + quantity % item.getThreshold() * item.getPrice();
         }
-
         return totalCost;
     }
 
-
+    @Override
+    public String toString() {
+        return "ShoppingCart{" +
+                "id='" + id + '\'' +
+                ", cartItems=" + cartItems +
+                '}';
+    }
 }

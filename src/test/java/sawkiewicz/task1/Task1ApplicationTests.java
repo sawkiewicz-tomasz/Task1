@@ -3,9 +3,7 @@ package sawkiewicz.task1;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.junit.Test;
 
 import java.util.List;
 
@@ -32,7 +30,7 @@ public class Task1ApplicationTests {
         ItemRepository itemRepository = new ItemRepository();
         ShoppingCart testCart = new ShoppingCart();
         int expectedResult = 40;
-        testCart.purchase.add(new CartItem(1, itemRepository.findById("A")));
+        testCart.getCartItems().add(new CartItem(1, itemRepository.findById("A")));
         int result = testCart.calculateTotalCost();
         assertEquals(expectedResult, result, 0.01);
     }
@@ -42,7 +40,7 @@ public class Task1ApplicationTests {
         ItemRepository itemRepository = new ItemRepository();
         ShoppingCart testCart = new ShoppingCart();
         int expectedResult = 70;
-        testCart.purchase.add(new CartItem(3, itemRepository.findById("A")));
+        testCart.getCartItems().add(new CartItem(3, itemRepository.findById("A")));
         int result = testCart.calculateTotalCost();
         assertEquals(expectedResult, result, 0.01);
     }
@@ -59,8 +57,6 @@ public class Task1ApplicationTests {
         ItemRepository itemRepository = new ItemRepository();
         Item expectedItem = new Item("A", 40, 3, 70);
         Item resultItem = itemRepository.findById("A");
-        assertTrue(expectedItem.equals(resultItem));
+        assertTrue(expectedItem.isSameAs(resultItem));
     }
-
-
 }

@@ -1,6 +1,6 @@
 package sawkiewicz.task1;
 
-public interface Repository {
+public interface Repository <K>{
 
-    Object findById(String id);
+    Object findById(K id);
 }
