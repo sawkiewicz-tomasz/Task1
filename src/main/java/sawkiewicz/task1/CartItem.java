@@ -29,12 +29,4 @@ public class CartItem {
         temp++;
         cartItem.setQuantity(temp);
     }
-
-    @Override
-    public String toString() {
-        return "CartItem{" +
-                "quantity=" + quantity +
-                ", item=" + item +
-                '}';
-    }
 }

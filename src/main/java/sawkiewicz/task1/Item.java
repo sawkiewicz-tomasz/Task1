@@ -39,14 +39,4 @@ public class Item {
         if (specialPrice != item.specialPrice) return false;
         return id.equals(item.id);
     }
-
-    @Override
-    public String toString() {
-        return "Item{" +
-                "id='" + id + '\'' +
-                ", price=" + price +
-                ", threshold=" + threshold +
-                ", specialPrice=" + specialPrice +
-                '}';
-    }
 }

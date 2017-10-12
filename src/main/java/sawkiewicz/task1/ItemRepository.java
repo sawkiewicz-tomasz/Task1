@@ -1,7 +1,6 @@
 package sawkiewicz.task1;
 
 import com.google.common.collect.ImmutableList;
-
 import java.util.ArrayList;
 import java.util.List;
 import static java.util.stream.Collectors.toCollection;

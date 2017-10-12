@@ -20,11 +20,11 @@ public class Answer {
         this.message = message;
     }
 
-    @Override
-    public String toString() {
-        return "Answer{" +
-                "responce='" + responce + '\'' +
-                ", message='" + message + '\'' +
-                '}';
+    public String getResponce() {
+        return responce;
+    }
+
+    public String getMessage() {
+        return message;
     }
 }

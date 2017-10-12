@@ -1,11 +1,7 @@
 package sawkiewicz.task1;
 
-import sawkiewicz.task1.Repository;
-import sawkiewicz.task1.ShoppingCart;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import static java.util.stream.Collectors.toCollection;
 
 public class ShoppingCartRepository<String> implements Repository {

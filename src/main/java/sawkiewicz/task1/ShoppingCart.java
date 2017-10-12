@@ -27,12 +27,4 @@ public class ShoppingCart {
         }
         return totalCost;
     }
-
-    @Override
-    public String toString() {
-        return "ShoppingCart{" +
-                "id='" + id + '\'' +
-                ", cartItems=" + cartItems +
-                '}';
-    }
 }

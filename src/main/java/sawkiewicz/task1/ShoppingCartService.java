@@ -23,7 +23,6 @@ public class ShoppingCartService {
                 .findById(cartId)
                 .getCartItems()
                 .size();
-
         if (sizeOfPurchase == 0) {
             shoppingCartRepository
                     .findById(cartId)
@@ -31,14 +30,12 @@ public class ShoppingCartService {
                     .add(cartItemToAdd);
             return;
         }
-
         for (CartItem cartItem : shoppingCartRepository.findById(cartId).getCartItems()) {
             if (cartItem.getItem().getId().equals(itemToAdd.getId())) {
                 cartItem.increaseQuantiy(cartItem);
                 return;
             }
         }
-
         shoppingCartRepository.findById(cartId).getCartItems().add(cartItemToAdd);
     }
 
@@ -49,5 +46,4 @@ public class ShoppingCartService {
         answer.setMessage("" + valueOfPurchase);
         return answer;
     }
-
 }
