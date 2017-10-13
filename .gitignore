@@ -1,0 +1,10 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea
+*.iml
+*resources
+target
+mvnw
+mvnw.cmd
+pom.xml
+*.log
+.mvn
